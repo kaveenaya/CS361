@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Welcome to the Bookmark Manager</h2>
+    <p>Select an option to manage your bookmarks:</p>
+    <ul>
+        <li><a href="{{ url_for('add_page') }}">Add a new bookmark</a></li>
+        <li><a href="{{ url_for('list_page') }}">View all bookmarks</a></li>
+        <li><a href="{{ url_for('delete_page') }}">Delete a bookmark</a></li>
+    </ul>
+{% endblock %}

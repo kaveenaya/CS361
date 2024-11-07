@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Your Bookmarks</h2>
+    <ul>
+        {% for bookmark in bookmarks %}
+            <li>{{ bookmark.url }}</li>
+        {% else %}
+            <li>No bookmarks saved.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

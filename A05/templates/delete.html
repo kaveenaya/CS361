@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Delete a Bookmark</h2>
+    <p>Select a bookmark to delete:</p>
+    <ul>
+        {% for bookmark in bookmarks %}
+            <li>
+                {{ bookmark.url }}
+                <form action="{{ url_for('delete_bookmark', id=bookmark.id) }}" method="POST" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        {% else %}
+            <li>No bookmarks to delete.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
