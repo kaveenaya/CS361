@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Bookmark Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
 </head>
 <body>
     <header>
@@ -13,6 +15,7 @@
             <a href="{{ url_for('list_page') }}">List Bookmarks</a>
             <a href="{{ url_for('delete_page') }}">Delete Bookmark</a>
         </nav>
+        <button id="theme-toggle">Switch to Dark Mode</button>
     </header>
     <main>
         {% block content %}{% endblock %}
