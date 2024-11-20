@@ -23,6 +23,8 @@ python3 app.py
 ## Communication Contract
 
 ### **Request Data**
+You can interact with the microservice via its endpoints using HTTP requests. Below are the details for each supported operation:
+
 1. **Add a Bookmark**
    - `POST /bookmark`
    - **Parameters**: 
@@ -33,6 +35,10 @@ python3 app.py
      response = requests.post("http://127.0.0.1:5000/bookmark", data={"url": "http://example.com"})
      print(response.status_code, response.text)
      ```
+Expected Behavior:
+
+The server processes the request, saves the bookmark, and redirects to /list.
+If successful, it responds with a 302 status code indicating a redirection.
 
 2. **List Bookmarks**
    - `GET /list`
@@ -43,6 +49,10 @@ python3 app.py
      response = requests.get("http://127.0.0.1:5000/list")
      print(response.status_code, response.text)
      ```
+Expected Behavior:
+
+The server responds with an HTML page containing all saved bookmarks.
+If successful, the response status code will be 200.
 
 3. **Delete a Bookmark**
    - `POST /bookmark/<id>`
@@ -55,6 +65,11 @@ python3 app.py
      print(response.status_code, response.text)
      ```
 
+Expected Behavior:
+
+The server processes the delete request and redirects to /list.
+If successful, it responds with a 302 status code.
+
 ---
 
 ### **Programmatically Receive Data**
@@ -63,6 +78,8 @@ Responses are in JSON format. Example responses:
 Add a Bookmark: No data is directly returned. The response redirects to the /list endpoint if successful.
 List Bookmarks: Returns an HTML response with all the bookmarks. You can parse the HTML to extract the list if needed.
 Delete a Bookmark: No data is directly returned. The response redirects to the /list endpoint after deletion.
+
+The microservice provides responses to all requests, either as HTML (for /list) or as redirects (for /bookmark and /bookmark/<id>). 
 
 1. **Adding a Bookmark**:
    - **Response**: Redirects to `/list`.
