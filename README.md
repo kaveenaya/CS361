@@ -96,3 +96,5 @@ The microservice provides responses to all requests, either as HTML (for /list) 
 ---
 
 ### **UML Sequence Diagram**
+![BookmarkManager_Chart](https://github.com/user-attachments/assets/6f3a0f3d-8b07-496a-8366-a5941c305c14)
+
