@@ -2,9 +2,23 @@
 
 # Bookmark Manager Microservice
 
-This microservice allows users to manage bookmarks by providing endpoints to add, list, and delete bookmarks.
+This is a Flask-based microservice for managing bookmarks. It allows users to add, list, and delete bookmarks.
 
 ---
+
+## Prerequisites
+
+Before running the microservice, ensure you have the following installed:
+
+Python 3.10+
+pip (Python package manager) - pip install flask
+
+---
+
+## To Run The Program:
+
+python3 app.py
+
 
 ## Communication Contract
 
@@ -43,8 +57,13 @@ This microservice allows users to manage bookmarks by providing endpoints to add
 
 ---
 
-### **Receive Data**
+### **Programmatically Receive Data**
 Responses are in JSON format. Example responses:
+
+Add a Bookmark: No data is directly returned. The response redirects to the /list endpoint if successful.
+List Bookmarks: Returns an HTML response with all the bookmarks. You can parse the HTML to extract the list if needed.
+Delete a Bookmark: No data is directly returned. The response redirects to the /list endpoint after deletion.
+
 1. **Adding a Bookmark**:
    - **Response**: Redirects to `/list`.
 2. **Listing Bookmarks**:
