@@ -13,16 +13,22 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Dark mode toggle
-    const themeToggle = document.getElementById("theme-toggle");
-    const currentTheme = localStorage.getItem("theme") || "light";
-    document.documentElement.setAttribute("data-theme", currentTheme);
-    themeToggle.textContent = currentTheme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode";
+    // Dark mode toggle logic
+    const toggleButton = document.getElementById("dark-mode-toggle");
+    const body = document.body;
 
-    themeToggle.addEventListener("click", () => {
-        const newTheme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
-        document.documentElement.setAttribute("data-theme", newTheme);
-        localStorage.setItem("theme", newTheme);
-        themeToggle.textContent = newTheme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode";
+    // Check user's saved preference
+    if (localStorage.getItem("darkMode") === "enabled") {
+        body.classList.add("dark-mode");
+    }
+
+    toggleButton.addEventListener("click", () => {
+        if (body.classList.contains("dark-mode")) {
+            body.classList.remove("dark-mode");
+            localStorage.setItem("darkMode", "disabled");
+        } else {
+            body.classList.add("dark-mode");
+            localStorage.setItem("darkMode", "enabled");
+        }
     });
 });

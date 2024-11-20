@@ -6,7 +6,10 @@
         <h3>{{ category }}</h3>
         <ul>
             {% for bookmark in bookmarks_in_category %}
-                <li>{{ bookmark.url }} <em>(Added: {{ bookmark.timestamp }})</em></li>
+                <li>
+                    {{ bookmark.url }}
+                    <button class="more-info-btn" data-info="Added on {{ bookmark.timestamp }}">More Info</button>
+                </li>
             {% else %}
                 <li>No bookmarks in this category.</li>
             {% endfor %}
@@ -15,4 +18,11 @@
     <form action="{{ url_for('reset_bookmarks') }}" method="POST">
         <button type="submit" onclick="return confirm('Are you sure you want to reset all bookmarks?')">Reset All Bookmarks</button>
     </form>
+    <!-- Popup container -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span id="popup-close" class="popup-close">&times;</span>
+            <p id="popup-text"></p>
+        </div>
+    </div>
 {% endblock %}
